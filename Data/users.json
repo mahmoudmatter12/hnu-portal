@@ -22,7 +22,7 @@
         "id": 4,
         "name": "ota",
         "pass": "1234",
-        "role": "student"
+        "role": "admin"
     },
     {
         "id": 5,
