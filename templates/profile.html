@@ -26,13 +26,17 @@
             <hr>
             <strong> Role: <span id="role"></span> </strong>
             <hr>
+            <strong> Email: <span id="email"></span> </strong>
+            <hr>
             <strong> User ID: <span id="id"></span> </strong>
         </div>
         <!-- Action Buttons -->
         <div>
             <div class="list-group">
-                <button class="btn btn-primary" onclick="time_table()">Time Table</button>
-                <button class="btn btn-secondary admin" onclick="Matrix()">Lectures Time Table</button>
+                <button class="btn btn-primary" onclick="time_table()"> <i class="fas fa-calendar"></i> Time Table</button>
+                <button class="btn btn-secondary admin" onclick="Matrix()" title="View Lectures Timetable">
+                    <i class="fas fa-calendar"></i> Lectures Time Table
+                </button>
                 <button class="btn btn-secondary admin" onclick="students()">Student Info</button>
                 <button class="btn btn-secondary" onclick="home()">Home</button>
                 <button class="btn btn-danger" onclick="logout()">Logout</button>

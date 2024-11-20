@@ -1,9 +1,15 @@
 // Redirect to login if the user is not logged in
 function checkLogin() {
     const currentUser = sessionStorage.getItem('currentUser');
-    if (!currentUser) {
-        window.location.href = '/templates/login.html';
-        return;
+    const user = currentUser ? JSON.parse(currentUser) : null;
+    if (!currentUser || user.role !== 'Teacher' && user.role !== 'TA' && user.role !== 'admin') {
+        Swal.fire({
+            icon: "error",
+            title: "Access Denied!",
+            text: "You are not authorized to view this page.",
+        }).then(() => {
+            window.location.href = '/templates/profile.html';
+        });
     } else {
         // Assuming currentUser contains the user ID
         const user = JSON.parse(currentUser);
@@ -75,7 +81,7 @@ function populateTimetable(subjects) {
                     timetableCell.style.backgroundColor = 'lightgreen';
                 }
                 if (subject.subject_name != "FREE") {
-                    timetableCell.innerHTML += `<br><button class="btn btn-outline-info" onclick="redirectToSubject('${subject.subject_name}', '${subject.group}', '${subject.level}')">View Details</button>`;
+                    timetableCell.innerHTML += `<br><button class="btn btn-primary" onclick="redirectToSubject('${subject.subject_name}', '${subject.group}', '${subject.level}')">View Details</button>`;
                 }
 
             } else {

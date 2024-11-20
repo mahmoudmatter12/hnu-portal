@@ -3,7 +3,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
 }
 
 
@@ -109,4 +108,12 @@ button{
 img{
 	width: 100px;
 	height: 100px;
+}
+
+.footer{
+	display: flex;
+	justify-content: center;
+	font-size: x-large;
+	background-color: #E4E4ED;
+	color:#073a74;
 }

@@ -55,10 +55,25 @@ hr {
 }
 
 .free {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
+    background-color: lightgreen;
+    color: darkgreen;
+    font-weight: bold;
 }
 
-/* E4E4ED */
+.content h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.timetable-column {
+    transition: background-color 0.3s ease;
+}
+
+.timetable-column:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-primary {
+    background-color: #1abc9c;
+    border: none;
+}

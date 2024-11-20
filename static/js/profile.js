@@ -16,14 +16,24 @@ function displayProfileInfo(user) {
     const nameElement = document.getElementById('name');
     const roleElement = document.getElementById('role');
     const idElement = document.getElementById('id');
+    const emailElement = document.getElementById('email');
 
     if (nameElement) {
-        nameElement.textContent += user.name;
+        if (user.name === 'Matter') {
+            nameElement.innerHTML = `<img src="/static/images/matter.png" alt="Matter Image" class="matterimg">`;
+        }
+        else {
+            nameElement.textContent = user.name;
+        }
 
     }
 
     if (roleElement) {
         roleElement.textContent = user.role;
+    }
+
+    if (emailElement) {
+        emailElement.textContent = user.email;
     }
 
     if (idElement) {
