@@ -117,3 +117,13 @@ img{
 	background-color: #E4E4ED;
 	color:#073a74;
 }
+
+#features{
+	padding-left: 0;
+
+}
+
+#features li{
+	list-style-type:circle;
+	
+}
