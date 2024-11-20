@@ -1,16 +1,18 @@
 .home{
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
 }
+
 
 body{
 	min-height: 100vh;
 }
 
 .title {
-	padding: 2rem;
+	padding: 0.6rem;
 	text-align: center;
 	color: #073a74;
 	/* border: 3px solid red; */
