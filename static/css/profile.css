@@ -1,0 +1,99 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.card {
+    background-color: #E4E4ED;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    text-align: center;
+    max-width: 600px;
+}
+
+.card h2 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 600px) {
+    .card h2 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .card h2 {
+        font-size: 1.5rem;
+    }
+
+}
+
+.profile-info {
+    margin-bottom: 2rem;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.btn {
+    border-radius: 30px;
+    padding: 0.6rem 1.2rem;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #1abc9c;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #16a085;
+}
+
+.btn-secondary {
+    background-color: #3498db;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.title {
+    padding: 2rem;
+    text-align: center;
+    color: #073a74;
+    /* border: 3px solid red; */
+    border-radius: 20px;
+}
+
+#profileInfo {
+    text-align: left;
+}
+
+#profileInfo strong {
+    font-size: 1.5rem;
+    color: #2980b9;
+}
+
+#profileInfo span {
+    color: black;
+    font-size: smaller;
+}

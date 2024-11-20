@@ -1,0 +1,110 @@
+.home{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body{
+	min-height: 100vh;
+}
+
+.title {
+	padding: 2rem;
+	text-align: center;
+	color: #073a74;
+	/* border: 3px solid red; */
+	border-radius: 20px;
+}
+
+.card h1{
+	margin-bottom: 2rem;
+	font-size: 3rem;
+	color: #073a74;
+}
+
+.card h2{
+	color: #073a74;
+}
+
+.card {
+	background-color: #E4E4ED;
+	border-radius: 20px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	padding: 2rem;
+	margin: 1rem;
+	text-align: center;
+	max-width: 750px;
+}
+
+.cbody {
+	text-align: left;
+	font-size: 1.5rem;
+	color: #073a74;
+	border-radius: 20px;
+}
+
+@media screen and (max-width: 600px) {
+	.card h1 {
+		font-size: 2rem;
+	}
+
+	.cbody {
+		font-size: 1rem;
+	}
+
+	.card {
+		max-width: 400px;
+	}
+}
+/* Styles for screens wider than 750px */
+@media screen and (min-width: 751px) {
+    .card h1 {
+        font-size: 2.5rem;
+    }
+    .cbody {
+        font-size: 1.2rem;
+    }
+    .card {
+        max-width: 800px;
+    }
+}
+
+/* Styles for screens between 400px and 750px */
+@media screen and (min-width: 400px) and (max-width: 750px) {
+    .card h1 {
+        font-size: 2rem;
+    }
+    .cbody {
+        font-size: 1rem;
+    }
+    .card {
+        max-width: 600px;
+    }
+}
+
+/* Styles for screens narrower than 400px */
+@media screen and (max-width: 399px) {
+    .card h1 {
+        font-size: 1.7rem;
+    }
+    .cbody {
+        font-size: 0.9rem;
+    }
+    .card {
+        max-width: 300px;
+    }
+}
+
+button{
+	display: block;
+}
+
+.btn{
+	margin-bottom: 10px;
+}
+
+img{
+	width: 100px;
+	height: 100px;
+}

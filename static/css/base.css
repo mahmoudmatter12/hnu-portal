@@ -1,0 +1,29 @@
+body{
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullhight{
+    height: 100vh;
+}
+
+.halfhight{
+    height: 50vh;
+}
+
+.card{
+	width: 300px;
+	height: 300px;
+	background-color: #f4f4f4;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	transition: 0.3s;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subject Details</title>
+    <link rel="stylesheet" href="/static/css/display.css" />
+    <link rel="stylesheet" href="/static/css/back.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="card" id="bg-card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body center" id="bg-color">
+                    <div id="subject-details"></div>
+                </div>
+            </div>
+            <br />
+            <div class="card" id="bg-color">
+                <div class="card-body">
+                    <!--! Counter display for the number of students who attended -->
+                    <h3 class="Counter center">
+                        Students Attended:
+                        <span id="attendanceCount" style="color: red;">0</span>
+                        <br>
+                        <br>
+
+                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
+                            data-bs-target="#display" onclick="Attended_Students()">
+                            Display
+                        </button>
+
+                    </h3>
+                </div>
+            </div>
+            <br />
+
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="display" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Attended Students</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="attended_students_info">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card" id="bg-color">
+                <div class="card-body">
+                    <h1 class="center">Student Scanner</h1>
+                    <br>
+                    <div class="card">
+                        <!--! Search form to search for students by SSN -->
+                        <nav class="navbar bg-body-tertiary" >
+                            <div class="container-fluid">
+                                <form class="d-flex" role="search" id="searchForm">
+                                    <input class="form-control me-2" type="text" id="ssn" name="ssn" placeholder=" SSN"
+                                        required />
+                                    <button class="btn btn-outline-success" style="margin-right: 6px" type="submit">
+                                        Add
+                                    </button>
+                                    <span class="qr-text btn btn-outline-success" id="qr-reader-link">
+                                        Scanner</span>
+                                    <!-- todo put the scnnaer logic  -->
+                                </form>
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!--! Video element to display the camera feed -->
+
+            <video id="preview"></video>
+
+            <!--! Display student information -->
+            <div id="studentInfo"></div>
+
+            <!--! Success message for successfully added students -->
+            <div class="card-container" id="successfully_added" style="display: none">
+                <div class="card-body">
+                    <p class="text-center message">
+                        Student added successfully
+                        <br />
+                        <span class="checkmark">&#10004;</span>
+                    </p>
+                </div>
+            </div>
+
+            <!--! Warning message for already attended students -->
+            <div id="alreadyAttendedMessage" class="card-container already_added_container" style="display: none">
+                <div class="card-body">
+                    <p class="text-center message already_added">
+                        Student already attended
+                        <br />
+                        <span class="checkmark">&#9888;</span>
+                    </p>
+                </div>
+            </div>
+
+            <!--! Error message for invalid SSN -->
+            <div id="invalidSSNMessage" class="card-container invalid_ssn_container" style="display: none">
+                <div class="card-body">
+                    <p class="text-center message invalid_ssn">
+                        Invalid SSN
+                        <br />
+                        <span class="checkmark">&#10006;</span>
+                    </p>
+                </div>
+            </div>
+
+            <!--* Modal -->
+            <div class="modal fade" id="clear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                Clear Attendance
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to clear the attendance?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="Clear()" data-bs-dismiss="modal">
+                                Yes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--! buttons -->
+            <div class="card" id="bg-color">
+                <div class="card-body center">
+                    <button class="test btn btn-success" onclick="downloadAndClear()">
+                        Download & Clear
+                    </button>
+                    <br />
+                    <button type="button" class="test btn btn-secondary" data-bs-toggle="modal" data-bs-target="#clear">
+                        Clear Attendance
+                    </button>
+                    <br />
+                    <button class="test btn btn-warning" onclick="profile()">
+                        Profile
+                    </button>
+                    <br />
+                    <button class="test btn btn-primary" onclick="TimeTable()">
+                        TimeTable
+                    </button>
+                    <br />
+                    <button class="test btn btn-danger" onclick="logout()">
+                        Logout
+                    </button>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/scanner.js"></script>
+    <script src="/static/js/display.js"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+
+</html>

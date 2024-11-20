@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Scanner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div id="profile"></div>
+
+    <h1>Student Scanner</h1>
+    <form id="searchForm">
+        <label for="ssn">SSN:</label>
+        <input type="text" id="ssn" name="ssn" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="studentInfo"></div>
+    
+    <!-- Counter display for the number of students who attended -->
+    <p>Students Attended: <span id="attendanceCount">0</span></p>
+
+    <!-- Warning message for already attended students -->
+    <div id="alreadyAttendedMessage" style="display: none; color: red;">
+        This student has already attended.
+    </div>
+    
+    <button onclick="logout()">Logout</button>
+    <button onclick="home()">Home</button>
+    <button onclick="scanner()">Scanner</button>
+    <button onclick="downloadAndClear()">Download & Clear</button>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/scanner.js"></script>
+
+</body>
+</html>

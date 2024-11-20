@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Cards</title>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/studentdata.css" />
+  <link rel="stylesheet" href="/static/css/back.css" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <div id="navbar" class="d-flex justify-content-between align-items-center p-3 border-bottom">
+    <!-- Name on the left -->
+    <div class="name">Helwan National University <br> Admin Panel</div>
+    <div class="name" id="name"> </div>
+    <!-- Buttons on the right -->
+    <div class="button-group d-flex" style="background-color:#E4E4ED;">
+      <a onclick="home()" class="btn btn-outline-primary">Home</a>
+      <a onclick="profile()" class="btn btn-outline-primary me-2">Profile</a>
+      <a onclick="TimeTable()" class="btn btn-outline-primary me-2">Table</a>
+      <a onclick="logout()" class="btn btn-outline-danger">Logout</a>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+
+  </div>
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <!-- Top Section with Counters, Dropdowns, and Search -->
+    <div class="row mb-4 total-info">
+      <div class="card-total row align-items-center">
+        <!-- Total number of students -->
+        <div class="col-md-4 total text-center">
+          <h4>
+            Total Students: <span id="total-students" style="color: #133d85">0</span>
+          </h4>
+        </div>
+
+        <!-- Filters -->
+        <div class="col-md-4 center">
+          <select id="department-filter" class="form-select mb-2">
+            <option value="All">All Departments</option>
+          </select>
+          <select id="payment-filter" class="form-select">
+            <option value="All">All</option>
+            <option value="True">Paid</option>
+            <option value="False">Pending</option>
+          </select>
+        </div>
+
+        <!-- Search Input -->
+        <div class="col-md-4">
+          <input type="text" id="search-input" class="form-control" placeholder="Search by ID, Email, or SSN" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Container for Student Cards -->
+    <div id="student-list" class="row g-4"></div>
+
+    <!-- Reset Filters Button -->
+    <div class="row mt-4">
+      <div class="col-md-4 mx-auto">
+        <button id="reset-filters" class="btn btn-warning w-100">
+          Reset Filters
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="text-center my-4" style="display: none;">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="card-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Student Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="student-card">
+            <div class="card">
+              <h1 id="student-name" class="text-center" style="color: #133d85; font-size: 50px;"></h1>
+            </div>
+            <hr />
+            <div class="card">
+              <div class="card-title">
+                <h3>Personal Details</h3>
+              </div>
+              <p><strong>ID:</strong> <span id="student-id"></span></p>
+              <p><strong>SSN:</strong> <span id="student-ssn"></span></p>
+              <p><strong>Group :</strong> <span id="student-group"></span></p>
+              <p><strong>Section:</strong> <span id="student-section"></span></p>
+              <p><strong>Department:</strong> <span id="student-department"></span></p>
+              <p><strong>Payment Status:</strong> <span id="student-payment"></span></p>
+            </div>
+            <hr>
+
+            <div class="card">
+              <h3>GPA Details</h3>
+              <table class="table table-striped table-bordered" id="gpa-details">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Semester</th>
+                    <th>GPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- GPA details will be populated here -->
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <div class="card">
+              <h5>Subjects</h5>
+              <ul id="subjects-list"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Pagination -->
+  <div class="container">
+    <div id="pagination" class="mt-4 text-center"></div>
+  </div>
+
+  <div id="toast-container" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1055;"></div>
+
+
+  <!-- report -->
+  <!-- Modal for selecting fields to include in the report -->
+  <div class="modal fade" id="fieldSelectionModal" tabindex="-1" aria-labelledby="fieldSelectionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fieldSelectionModalLabel">Select Fields for Report</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="form-check">
+            <input type="checkbox" id="select-all" onchange="selectAllFields()" class="form-check-input">
+            <label class="form-check-label" for="select-all">Select All</label>
+          </div>
+
+          <div id="field-checkboxes">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="generateReport()">Display Report</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Report Modal -->
+  <div class="modal fade" id="report-modal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportModalLabel">Student Report Card</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="report-modal-content">
+          <!-- Report content will be injected here -->
+        </div>
+
+        <div class="card-body">
+          <div class="modal-body">
+            <div class="report-card">
+              <div class="card">
+                <div class="card-title" id="report-title">
+                  <h3>Report Content</h3>
+
+                  <!-- Report Title will be here -->
+                </div>
+                <div class="card-body">
+                  <p id="report-content">
+                    <!-- Report Content will be here -->
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="modal-body">
+          <div class="card-body">
+            <input type="text" id="report-input-content" class="form-control" placeholder="Enter your report here" />
+          </div>
+          <hr>
+          <div class="card-footer">
+            <button class="btn btn-outline-secondary" onclick="clearReport()">Clear Report</button>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" onclick="copyreport()">Copy Report</button>
+          <button type="button" class="btn btn-outline-primary" onclick="sendViaWhatsApp()">Send via Whatsapp</button>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JavaScript Files -->
+  <!-- Bootstrap JS for responsive and interactive components -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript for handling student data interactions -->
+  <script src="/static/js/studentsdata.js"></script>
+
+  <!-- Base JavaScript for common functionalities across the site -->
+  <script src="/static/js/base.js"></script>
+
+</body>
+
+</html>

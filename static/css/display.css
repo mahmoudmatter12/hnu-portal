@@ -1,0 +1,112 @@
+body {
+    padding: 20px;
+}
+
+.test {
+    min-width: 200px;
+    margin-bottom: 3px;
+    padding-bottom: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .center {
+        text-align: left;
+    }
+}
+
+#bg-card{
+    background: radial-gradient(circle, transparent 20%, #E4E4ED 20%, #E4E4ED 80%, transparent 80%, transparent) 0% 0% / 102px 102px, radial-gradient(circle, transparent 20%, #E4E4ED 20%, #E4E4ED 80%, transparent 80%, transparent) 51px 51px / 102px 102px, linear-gradient(#1A8FE5 2px, transparent 2px) 0px -1px / 51px 51px, linear-gradient(90deg, #1A8FE5 2px, #E4E4ED 2px) -1px 0px / 51px 51px #E4E4ED;
+    background-size: 102px 102px, 102px 102px, 51px 51px, 51px 51px;
+    background-color: #E4E4ED;
+}
+
+#bg-color{
+    background-color: #E4E4ED;
+}
+
+
+.card-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    /* Light background color */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 2px solid #4caf50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.already_added_container {
+    border: 2px solid red;
+}
+
+/* Card message text */
+.message {
+    color: #4caf50;
+    /* Green color */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.already_added {
+    color: red;
+    /* Red color */
+}
+
+/* Checkmark icon styling */
+.checkmark {
+    font-size: 80px;
+    display: block;
+    margin-top: 10px;
+    color: #4caf50;
+}
+
+
+video {
+    display: none;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+
+.btn-primary {
+    background-color: #1abc9c;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #16a085;
+}
+
+.btn-secondary {
+    background-color: #3498db;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}

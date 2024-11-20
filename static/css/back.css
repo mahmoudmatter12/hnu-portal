@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+body {
+    font-family: "Cairo", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+    background: radial-gradient(circle, transparent 20%, #E4E4ED 20%, #E4E4ED 80%, transparent 80%, transparent) 0% 0% / 102px 102px, radial-gradient(circle, transparent 20%, #E4E4ED 20%, #E4E4ED 80%, transparent 80%, transparent) 51px 51px / 102px 102px, linear-gradient(#1A8FE5 2px, transparent 2px) 0px -1px / 51px 51px, linear-gradient(90deg, #1A8FE5 2px, #E4E4ED 2px) -1px 0px / 51px 51px #E4E4ED;
+    background-size: 102px 102px, 102px 102px, 51px 51px, 51px 51px;
+    background-color: #E4E4ED;
+}
