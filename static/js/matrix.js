@@ -9,8 +9,15 @@ function checkLogin() {
 }
 
 function checkAdmin() {
-    if(currentUser.role != 'admin'){
-        showAdminMassege();
+    console.log(currentUser);
+    if (!currentUser || !currentUser.isadmin) {
+        Swal.fire({
+            icon: "error",
+            title: "Access Denied!",
+            text: "You are not authorized to view this page.",
+        }).then(() => {
+            window.location.href = '/templates/profile.html';
+        });
     }
 }
 

@@ -2,7 +2,7 @@
 function checkLogin() {
     const currentUser = sessionStorage.getItem('currentUser');
     const user = currentUser ? JSON.parse(currentUser) : null;
-    if (!currentUser || user.role !== 'Teacher' && user.role !== 'TA' && user.role !== 'admin') {
+    if (!currentUser || user.role !== 'prof' && user.role !== 'TA' && !user.isadmin) {
         Swal.fire({
             icon: "error",
             title: "Access Denied!",

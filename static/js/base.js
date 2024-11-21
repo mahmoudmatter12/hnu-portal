@@ -15,6 +15,13 @@ function checkLogin() {
     }
 }
 
+function isalreadysignedin() {
+    const currentUser = sessionStorage.getItem('currentUser');
+    if (currentUser) {
+        window.location.href = '/templates/profile.html';
+    }
+}
+
 // Function to show a toast notification
 function showToast(message, type = "danger") {
     const toastContainer = document.getElementById("toast-container");
@@ -53,3 +60,6 @@ const today = new Date().getDay();
 const todayName = daysOfWeek[today];
 
 checkLogin();
+
+
+isalreadysignedin();

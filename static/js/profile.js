@@ -23,7 +23,7 @@ function displayProfileInfo(user) {
             nameElement.innerHTML = `<img src="/static/images/matter.png" alt="Matter Image" class="matterimg">`;
         }
         else {
-            nameElement.textContent = user.name;
+            nameElement.textContent = user.name ;
         }
 
     }
@@ -32,10 +32,12 @@ function displayProfileInfo(user) {
         roleElement.textContent = user.role;
     }
 
-    if (emailElement) {
+    if (emailElement && user.email) {
         emailElement.textContent = user.email;
+    } else {
+        emailElement.innerHTML = `No email provided`;
     }
-
+    
     if (idElement) {
         idElement.textContent = user.id;
     }

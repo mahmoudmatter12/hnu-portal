@@ -46,3 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function isalreadysignedin() {
+    const currentUser = sessionStorage.getItem('currentUser');
+    if (currentUser) {
+        window.location.href = '/templates/profile.html';
+    }
+}
+
+isalreadysignedin();

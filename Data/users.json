@@ -3,55 +3,15 @@
         "id": 1,
         "name": "Matter",
         "pass": "1234",
-        "email": "mahmoodgamal045@gmail.com",
-        "role": "admin"
+        "email": "Mahmoud@portal.com",
+        "role": "admin",
+        "Isadmin": true
     },
     {
         "id": 2,
-        "name": "ahmed",
-        "pass": "1234",
-        "role": "prof"
-    },
-    {
-        "id": 3,
-        "name": "mohamed",
-        "pass": "1234",
-        "role": "prof"
-    },
-    {
-        "id": 1,
-        "name": "ota",
-        "pass": "1234",
-        "role": "admin"
-    },
-    {
-        "id": 5,
-        "name": "ahmed",
-        "pass": "1234",
-        "role": "student"
-    },
-    {
-        "id": 6,
         "name": "mahmoud",
         "pass": "1234",
-        "role": "student"
-    },
-    {
-        "id": 7,
-        "name": "seif",
-        "pass": "1911",
-        "role": "student"
-    },
-    {
-        "id": 8,
-        "name": "ahmed",
-        "pass": "1234",
-        "role": "student"
-    },
-    {
-        "id": 9,
-        "name": "mohamed",
-        "pass": "1234",
-        "role": "student"
+        "role": "prof",
+        "Isadmin": false
     }
 ]
