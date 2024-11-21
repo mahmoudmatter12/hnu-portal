@@ -10,7 +10,7 @@ function checkLogin() {
 
 function checkAdmin() {
     console.log(currentUser);
-    if (!currentUser || !currentUser.isadmin) {
+    if (!currentUser || currentUser.isadmin) {
         Swal.fire({
             icon: "error",
             title: "Access Denied!",
