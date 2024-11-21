@@ -231,7 +231,7 @@ function Attended_Students() {
                 </div>
             </div>
         </div>
-        <button class="btn btn-outline-danger" onclick="removeStudent(${index})">delete</button>
+        <button class="btn btn-outline-danger" onclick="removeStudent(${index})"><i class="fa-solid fa-trash"></i> </button>
     </div>
 `;
 

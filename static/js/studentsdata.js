@@ -75,7 +75,7 @@ function displayStudents(students) {
             </span>
           </div>
           <header class="header">
-            <h5 class="card-title">${highlightSearchMatch(student.name)}</h5>
+            <h5 class="card-title text-center" > <i class="fa-regular fa-user"></i>${highlightSearchMatch(student.name)}</h5>
           </header>
           <h6 class="card-subtitle mb-2 text-muted subheader">
             <i class="fas fa-id-card"></i> ID: ${highlightSearchMatch(
@@ -252,6 +252,7 @@ function DisplayReport(reportCardHTML) {
     const reportModal = new bootstrap.Modal(document.getElementById("report-modal"));
     reportModal.show();
 }
+
 
 
 function openFieldSelectionModal(ssn) {

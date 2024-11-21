@@ -81,7 +81,7 @@ function populateTimetable(subjects) {
                     timetableCell.style.backgroundColor = 'lightgreen';
                 }
                 if (subject.subject_name != "FREE") {
-                    timetableCell.innerHTML += `<br><button class="btn btn-primary" onclick="redirectToSubject('${subject.subject_name}', '${subject.group}', '${subject.level}')">View Details</button>`;
+                    timetableCell.innerHTML += `<br><button class="btn btn-primary" onclick="redirectToSubject('${subject.subject_name}', '${subject.group}', '${subject.level}')">  View Details</button>`;
                 }
 
             } else {
