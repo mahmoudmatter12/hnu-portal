@@ -61,5 +61,3 @@ const todayName = daysOfWeek[today];
 
 checkLogin();
 
-
-isalreadysignedin();
