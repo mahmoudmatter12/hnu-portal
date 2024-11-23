@@ -1,16 +1,17 @@
 // Redirect to login if the user is not logged in
-const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+const User = JSON.parse(sessionStorage.getItem('currentUser'));
 
 function checkLogin() {
-    if (!currentUser) {
+    if (!User) {
         window.location.href = '/templates/login.html';
         return;
     }
 }
 
 function checkAdmin() {
-    console.log(currentUser);
-    if (!currentUser || currentUser.isadmin) {
+const User = JSON.parse(sessionStorage.getItem('currentUser'));
+console.log(User);
+    if (!User && User.isadmin) {
         Swal.fire({
             icon: "error",
             title: "Access Denied!",

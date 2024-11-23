@@ -90,10 +90,12 @@ function displayStudents(students) {
             student.ssn
         )}<br><br>
             ${student.phone_num ? `
-            <i class="fab fa-whatsapp"></i> <strong class='wb'>WhatsApp :</strong> <a class="link" href="${generalwhatappphonelink(student.phone_num, `Hello ${student.name}, I'm ${currentUser.role} ${currentUser.name} from the Attendance portal`)}">${student.phone_num}</a>
-            `:`
-            <i class="fab fa-whatsapp"></i> <strong class="wb">WhatsApp :</strong> Add phone in database
-            `}
+            <i class="fab fa-whatsapp"></i> <strong class='wb'>WhatsApp :</strong> <a class="link" href="${generalwhatappphonelink(student.phone_num, `Hello ${student.name}, I'm ${currentUser.role} ${currentUser.name} from the Attendance portal`)} target="_blank">${student.phone_num}</a>
+            `: `
+            <i class="fab fa-whatsapp"></i> <strong class="wb">WhatsApp :</strong> Not available`}
+            <br>
+            <br>
+            <i class="fab fa-facebook"></i> <strong class="st">Facebook Page:</strong> ${student.facebook_url ? `<a class="link" href="${student.facebook_url}" target="_blank"><br>${student.facebook_name}</a>` : "Not available"}
             <br>
             <hr>
             <div class="d-flex justify-content-between align-items-center">
@@ -273,18 +275,18 @@ function sendViaWhatsApp() {
         return;
     }
 
-    const reportText = reportCard.innerText + "\n" +reportContent;
+    const reportText = reportCard.innerText + "\n" + reportContent;
     const encodedText = encodeURIComponent(reportText);
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedText}`;
 
     window.open(whatsappUrl, '_blank');
 }
 
-function generalwhatappphonelink(phone_num , message = '') {
+function generalwhatappphonelink(phone_num, message = '') {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://api.whatsapp.com/send?phone=+2${phone_num}&text=${encodedMessage}`;
     return whatsappUrl;
-    
+
 }
 // Function to copy the report content
 function copyreport() {

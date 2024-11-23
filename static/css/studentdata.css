@@ -288,6 +288,10 @@ select#payment-filter option {
   color: #0077b5;
   font-size: 18px;
 }
+.fa-facebook{
+  color: #3b5998;
+  font-size: 20px;
+}
 .wb{
   font-size: 18px;
   color: #25d366;
