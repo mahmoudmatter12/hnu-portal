@@ -36,28 +36,52 @@
             "GPA": "3.5"
         }
     ],
-    "subjects": [
-      {
-        "subject_name": "Math",
-        "subject_code": "MATH101"
-      },
-      {
-        "subject_name": "Physics",
-        "subject_code": "PHYS101"
-      },
-      {
-        "subject_name": "English",
-        "subject_code": "ENGL101"
-      },
-      {
-        "subject_name": "Arabic",
-        "subject_code": "ARAB101"
-      },
-      {
-        "subject_name": "Computer",
-        "subject_code": "COMP101"
-      }
-    ]
+    "subjects": {
+      "semester-1": [
+        {
+          "subject_name": "Math",
+          "subject_code": "MATH101"
+        },
+        {
+          "subject_name": "Physics",
+          "subject_code": "PHYS101"
+        },
+        {
+          "subject_name": "English",
+          "subject_code": "ENGL101"
+        },
+        {
+          "subject_name": "Arabic",
+          "subject_code": "ARAB101"
+        },
+        {
+          "subject_name": "Computer",
+          "subject_code": "COMP101"
+        }
+      ],
+      "semester-2": [
+        {
+          "subject_name": "Math",
+          "subject_code": "MATH101"
+        },
+        {
+          "subject_name": "Physics",
+          "subject_code": "PHYS101"
+        },
+        {
+          "subject_name": "English",
+          "subject_code": "ENGL101"
+        },
+        {
+          "subject_name": "Arabic",
+          "subject_code": "ARAB101"
+        },
+        {
+          "subject_name": "Computer",
+          "subject_code": "COMP101"
+        }
+      ]
+    }
   },
   {
     "name": "محمود جمال طلعت عز الدين ",

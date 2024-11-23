@@ -224,15 +224,21 @@ function generateReport() {
         reportCardHTML += `
             <div class="card">
                 <h3>Subjects</h3>
-                <ul>
-                    ${student.subjects.map(sub => `<li>${sub.subject_name} (${sub.subject_code})</li>`).join("")}
-                </ul>
-            </div>
         `;
+
+        for (const [semester, subjects] of Object.entries(student.subjects)) {
+            reportCardHTML += `<h5>Semester: ${semester}</h5><ul>`;
+            subjects.forEach(sub => {
+                reportCardHTML += `<li>${sub.subject_name} <i class="fa-solid fa-arrow-right"></i> (${sub.subject_code})</li>`;
+            });
+            reportCardHTML += `</ul><hr>`;
+        }
+
+        reportCardHTML += `</div>`;
     }
 
     // Close the report card div
-    reportCardHTML += `</div>`;
+    reportCardHTML += `<br> </div>`;
 
     // Display the generated report
     DisplayReport(reportCardHTML);
@@ -484,12 +490,21 @@ function showStudentDetails(ssn) {
         // Populate Subjects details
         const subjectsList = document.getElementById("subjects-list");
         subjectsList.innerHTML = "";
-        if (Array.isArray(student.subjects) && student.subjects.length > 0) {
-            student.subjects.forEach((subject) => {
+        if (student.subjects && typeof student.subjects === 'object') {
+            for (const [semester, subjects] of Object.entries(student.subjects)) {
+            const semesterHeader = document.createElement("h5");
+            semesterHeader.textContent = `Semester: ${semester}`;
+            subjectsList.appendChild(semesterHeader);
+
+            const ul = document.createElement("ul");
+            subjects.forEach((subject) => {
                 const li = document.createElement("li");
-                li.textContent = `${subject.subject_name} (Code: ${subject.subject_code})`;
-                subjectsList.appendChild(li);
+                li.innerHTML = `${subject.subject_name} <i class="fa-solid fa-arrow-right-long"></i> (${subject.subject_code})`;
+                ul.appendChild(li);
             });
+            subjectsList.appendChild(ul);
+            subjectsList.appendChild(document.createElement("hr"));
+            }
         } else {
             subjectsList.innerHTML = "<li>No subjects found</li>";
         }
