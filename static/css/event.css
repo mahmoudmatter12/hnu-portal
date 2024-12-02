@@ -1,8 +1,10 @@
-
 video {
-    display: none;
-    margin: 20px;
-    width: 400px;
-    height: 400px;
-    border-radius: 15px;
+    display: none; /* Initially hidden */
+    margin: 20px auto; /* Center the video horizontally */
+    width: 300px; /* Medium box width */
+    height: 300px; /* Medium box height */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for aesthetics */
+    border: 2px solid #ccc; /* Optional border for styling */
+    background-color: #f9f9f9; /* Optional background color */
 }
