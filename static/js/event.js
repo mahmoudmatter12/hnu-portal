@@ -264,6 +264,8 @@ function handleQRCodeScan(event) {
             );
             if (backCamera) {
                 scanner.start(backCamera);
+                // Flip the camera preview
+                video.style.transform = "scaleX(1)";
             } else {
                 displayQRCodeError("Back Camera Not Found", "Please use a device with a back-facing camera.");
             }
