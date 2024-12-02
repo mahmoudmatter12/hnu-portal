@@ -13,5 +13,12 @@
         "pass": "1234",
         "role": "prof",
         "Isadmin": false
+    }, 
+    {
+        "id": 3,
+        "name": "hima",
+        "pass": "2003",
+        "role": "OC",
+        "Isadmin": false
     }
 ]

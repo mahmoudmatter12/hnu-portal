@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Event Organization Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/back.css">
+    <link rel="stylesheet" href="/static/css/events">
+</head>
+
+<body>
+    <br>
+    <main>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card shadow-lg">
+                        <div class="card-header bg-primary text-white">
+                            <h2 class="text-center">Event Participants</h2>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead class="table table-striped-columns">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Data</th>
+                                        <th>SSN-URL</th>
+                                        <th>Committee</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="studentTableBody">
+                                    <!-- Table rows will go here -->
+                                </tbody>
+                            </table>
+                            <button id="resetTable" class="btn btn-warning" style="margin-right: 10px;"> Reset
+                                Table</button>
+                            <button id="resetTable" onclick='exportExcel()' class="btn btn-outline-success"><i
+                                    class="fas fa-file-export "></i> Export excel</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="mt-3">
+                                <select id="deleteStudentDropdown" class="form-select">
+                                    <option value="">Select a student to delete</option>
+                                </select>
+                                <button id="deleteStudentButton" class="btn btn-danger mt-2">Delete</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <br>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" id="bg-color">
+                        <div class="card-body">
+                            <h1 class="center">Student Scanner</h1>
+                            <br>
+                            <div class="card">
+                                <!--! Search form to search for students by SSN -->
+                                <nav class="navbar bg-body-tertiary">
+                                    <div class="container-fluid">
+                                        <form class="d-flex" role="search" id="searchForm">
+                                            <input class="form-control me-2" type="text" id="ssn" name="ssn"
+                                                placeholder=" SSN" required />
+                                            <button class="btn btn-success" style="margin-right: 6px" type="submit">
+                                                Add
+                                            </button>
+                                            <span class="qr-text btn btn-primary" id="qr-reader-link">
+                                                Scanner</span>
+                                            <!-- todo put the scnnaer logic  -->
+                                        </form>
+                                    </div>
+                                </nav>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!--! Video element to display the camera feed -->
+                    <video id="preview"></video>
+                </div>
+            </div>
+    </header>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/event.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

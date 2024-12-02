@@ -23,7 +23,7 @@ function displayProfileInfo(user) {
             nameElement.innerHTML = `<img src="/static/images/matter.png" alt="Matter Image" class="matterimg">`;
         }
         else {
-            nameElement.textContent = user.name ;
+            nameElement.textContent = user.name;
         }
 
     }
@@ -37,7 +37,7 @@ function displayProfileInfo(user) {
     } else {
         emailElement.innerHTML = `No email provided`;
     }
-    
+
     if (idElement) {
         idElement.textContent = user.id;
     }
@@ -45,15 +45,29 @@ function displayProfileInfo(user) {
 
 // Check if the user is an admin and display admin elements
 function checkAdminRole(user) {
-    console.log(user['role']);
-    const adminElements = document.querySelectorAll('.admin');
-    adminElements.forEach(element => {
-        if (user.role === 'admin') {
-            element.style.display = 'inline';
-        } else {
-            element.style.display = 'none';
-        }
-    });
+    const ocElements = document.querySelectorAll('.oc');
+    const time_table = document.querySelector('.time_table');
+    const lectures_time_table = document.querySelector('.lectures_time_table');
+    const student_info = document.querySelector('.student_info');
+
+    if (user.role === 'admin') {
+        ocElements.forEach(element => element.style.display = 'block');
+        time_table.style.display = 'block';
+        lectures_time_table.style.display = 'block';
+        student_info.style.display = 'block';
+    }
+    else if (user.role === 'OC') {
+        ocElements.forEach(element => element.style.display = 'block');
+        time_table.style.display = 'none';
+        lectures_time_table.style.display = 'none';
+        student_info.style.display = 'none';
+    }
+    else {
+        ocElements.forEach(element => element.style.display = 'none');
+        time_table.style.display = 'block';
+        lectures_time_table.style.display = 'none';
+        student_info.style.display = 'none';
+    }
 }
 
 // Call the checkAdminRole function after displaying profile info
@@ -73,6 +87,10 @@ function students() {
 function home() {
     window.location.href = '/';
 }
+function oc() {
+    window.location.href = '/templates/event.html';
+}
+
 
 
 // Run the login check when the page loads
