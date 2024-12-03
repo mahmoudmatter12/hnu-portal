@@ -47,3 +47,17 @@ video {
 .btn {
     border-radius: 8px;
 }
+
+img{
+    width: 300px;
+}
+
+@media screen and (max-width: 757px) {
+    video {
+        width: 200px;
+        height: 200px;
+    }
+    img{
+        width: 150px;
+    }
+}

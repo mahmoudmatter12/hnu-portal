@@ -24,18 +24,20 @@
                 <!-- Event Participants Card -->
                 <div class="card shadow-lg">
                     <div class="card-header text-white text-center">
-                        <h2>IEEE HELWAN STUDENT BRANSH</h2>
+                        <h2>IEEE HELWAN STUDENT BRANCH</h2>
                     </div>
 
                     <div class="card-body text-center">
-                        <div class="div">
-                            <img src="/static/images/ieee.png" alt="IEEE-logo" style="width: 300px; ">
+                        <div class="d-flex justify-content-center gap-2">
+                            <img src="/static/images/ieee.png" alt="IEEE-logo">
+                            <img src="/static/images/hnu-noback.png" alt="HNU-logo">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
 
     <!-- Main Section -->
     <main class="container mt-5">
@@ -44,7 +46,7 @@
                 <!-- Event Participants Card -->
                 <div class="card shadow-lg">
                     <div class="card-header text-white text-center">
-                        <h2>Event Participants</h2>
+                        <h1>Event Participants</h1>
                     </div>
                     <div class="card-body">
                         <!-- Participant Table -->
@@ -61,8 +63,8 @@
                             </table>
                         </div>
                         <!-- Buttons -->
-                        <div class="d-flex justify-content-between mt-3">
-                            <button id="resetTable" class="btn btn-outline-warning">
+                        <div class="d-flex justify-content-center mt-3">
+                            <button id="resetTable" class="btn btn-outline-warning" style="margin-right: 10px;">
                                 Reset Table
                             </button>
                             <button onclick="exportExcel()" class="btn btn-outline-success">
@@ -99,13 +101,15 @@
                                 <option value="ieee">IEEE Organizers</option>
                             </select>
                         </div>
-                        <div class="navbar mt-4">
-                            <form class="d-flex w-100" id="searchForm">
-                                <input class="form-control me-2" type="text" id="ssn" name="ssn"
-                                    placeholder="Phone number" required />
-                                <button class="btn btn-outline-success me-2" type="submit">Add</button>
-                                <button class="btn btn-outline-primary" id="qr-reader-link">Scanner</button>
-                            </form>
+                        <div class="align-items-center">
+                            <div class="navbar mt-4 ">
+                                <form class="d-flex w-100" id="searchForm">
+                                    <input class="form-control me-2" type="text" id="ssn" name="ssn"
+                                        placeholder="Phone number" required />
+                                    <button class="btn btn-outline-success me-2" type="submit">Add</button>
+                                    <button class="btn btn-outline-primary" id="qr-reader-link">Scanner</button>
+                                </form>
+                            </div>
                         </div>
                         <!-- Video element for Scanner -->
                         <div class="text-center mt-4">
@@ -117,8 +121,23 @@
             </div>
         </div>
     </section>
-    <br>
-    <br>
+
+    <section class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mt-4">
+                            <button id="resetScanner" class="btn btn-outline-primary me-3"
+                                style="min-width: 200px; margin-bottom: 10px;">Home</button>
+                            <button id="resetScanner" class="btn btn-outline-primary me-3"
+                                style="min-width: 200px;">Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <br>
 
     <!-- JavaScript -->
