@@ -13,6 +13,6 @@ def csv_to_json(csv_file_path, json_file_path):
         json.dump(data, json_file, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    csv_file_path = '/home/mahmoud/development/hnu-portal/Data/ieee.csv'  # Replace with your CSV file path
-    json_file_path = '/home/mahmoud/development/hnu-portal/Data/ocs.json'  # Replace with your desired JSON file path
+    csv_file_path = '/home/mahmoud/development/hnu-portal/Data/un_used/hnu-ocs.csv'  # Replace with your CSV file path
+    json_file_path = '/home/mahmoud/development/hnu-portal/Data/ocs2.json'  # Replace with your desired JSON file path
     csv_to_json(csv_file_path, json_file_path)

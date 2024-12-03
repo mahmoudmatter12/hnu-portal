@@ -1,15 +1,27 @@
-import base64
+from googletrans import Translator
+import json
 
-# Specify the path to the font file
-font_path = "/home/mahmoud/development/TA_Attendance/scripts/Cairo-Regular.ttf"  # Replace 'fontfile.ttf' with the actual font file name
+def translate_text(text, dest_language):
+    translator = Translator()
+    translation = translator.translate(text, dest=dest_language)
+    return translation.text
 
-# Read the font file and encode it in Base64
-try:
-    with open(font_path, "rb") as font_file:
-        base64_data = base64.b64encode(font_file.read()).decode("utf-8")
-except FileNotFoundError:
-    print(f"Error: The file at {font_path} was not found.")
-    base64_data = ""
 
-# Print the Base64 string
-print(f"data:font/truetype;base64,{base64_data}")
+def getdata():
+    with open('/home/mahmoud/development/hnu-portal/Data/ocs2.json') as f:
+        data = json.load(f)
+        for i in data:
+            if i['name'].isascii():
+                continue
+            else:
+                text_to_translate = i['name']
+                destination_language = "en"  
+                translated_text = translate_text(text_to_translate, destination_language)
+                i['name'] = translated_text
+            
+    with open('/home/mahmoud/development/hnu-portal/Data/ocs2.json', 'w') as f:
+        json.dump(data, f, indent=4)
+            
+
+if __name__ == "__main__":
+    getdata()

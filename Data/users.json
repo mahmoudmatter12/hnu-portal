@@ -5,20 +5,28 @@
         "pass": "1234",
         "email": "Mahmoud@portal.com",
         "role": "admin",
-        "Isadmin": true
+        "isadmin": true
     },
     {
         "id": 2,
         "name": "mahmoud",
         "pass": "1234",
         "role": "prof",
-        "Isadmin": false
+        "isadmin": false
     }, 
     {
         "id": 3,
         "name": "hima",
         "pass": "2003",
         "role": "OC",
-        "Isadmin": false
+        "isadmin": false
+    },
+    {
+        "id": 3,
+        "email": "rana@protal.com",
+        "name": "Rana khaled",
+        "pass": "1000",
+        "role": "OC",
+        "isadmin": false
     }
 ]
