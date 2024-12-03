@@ -211,6 +211,45 @@ function handleOrganizerTypeChange() {
     populateDeleteDropdown();
 }
 
+window.addEventListener("load", () => {
+    const img1Element = document.getElementById("img1");
+    const img2Element = document.getElementById("img2");
+
+    // Load images from local storage if available
+    const img1Data = localStorage.getItem("img1");
+    const img2Data = localStorage.getItem("img2");
+
+    if (img1Data) {
+        img1Element.src = img1Data;
+    } else {
+        fetchAndStoreImage("/static/images/ieee.png", "img1", img1Element);
+    }
+
+    if (img2Data) {
+        img2Element.src = img2Data;
+    } else {
+        fetchAndStoreImage("/static/images/logo.png", "img2", img2Element);
+    }
+});
+
+function fetchAndStoreImage(url, key, imgElement) {
+    fetch(url)
+        .then((response) => response.blob())
+        .then((blob) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64Data = reader.result;
+                localStorage.setItem(key, base64Data);
+                imgElement.src = base64Data;
+            };
+            reader.readAsDataURL(blob);
+        })
+        .catch((error) => {
+            console.error("Failed to load image:", error);
+        });
+}
+
+
 // Create table row based on data type
 function createTableRow(student, type) {
     const row = document.createElement("tr");
