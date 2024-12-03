@@ -31,7 +31,7 @@ function initializeApp() {
     }
 
     // Initial setup
-    populateDeleteDropdown();
+    // populateDeleteDropdown();
     loadSavedData();
     clearExpiredData();
 }
@@ -99,7 +99,7 @@ function exportExcel() {
     // Clear the table and local storage
     localStorage.removeItem("studentData");
     document.getElementById("studentTableBody").innerHTML = "";
-    populateDeleteDropdown();
+    // populateDeleteDropdown();
 
     Swal.fire({
         title: "Export Successful",
@@ -208,7 +208,7 @@ function updateTableHeaders() {
 function handleOrganizerTypeChange() {
     updateTableHeaders();
     document.getElementById("studentTableBody").innerHTML = "";
-    populateDeleteDropdown();
+    // populateDeleteDropdown();
 }
 
 window.addEventListener("load", () => {
@@ -228,7 +228,7 @@ window.addEventListener("load", () => {
     if (img2Data) {
         img2Element.src = img2Data;
     } else {
-        fetchAndStoreImage("/static/images/logo.png", "img2", img2Element);
+        fetchAndStoreImage("/static/images/hnu-noback.png", "img2", img2Element);
     }
 });
 
@@ -263,6 +263,7 @@ function createTableRow(student, type) {
           <td>${student.email}</td>
           <td>${student.phone}</td>
           <td>${student.id}</td>
+          <td> <button class="btn btn-outline-danger" onclick="deleteStudent(${student.id})">Delete</button></td>
        
     `;
     } else if (type === "ieee") {
@@ -271,6 +272,7 @@ function createTableRow(student, type) {
       <td>${new Date().toLocaleString()}</td>
       <td><a href="${student.url}" target="_blank">View URL</a></td>
       <td>${student.Committee}</td>
+        <td> <button class="btn btn-outline-danger" onclick="deleteStudent(${student.id})">Delete</button></td>
     `;
     }
     return row;
@@ -281,7 +283,7 @@ function saveToLocalStorage(student) {
     const storedStudents = JSON.parse(localStorage.getItem("studentData")) || [];
     storedStudents.push(student);
     localStorage.setItem("studentData", JSON.stringify(storedStudents));
-    populateDeleteDropdown();
+    // populateDeleteDropdown();
 }
 
 // Load saved data from local storage
@@ -295,71 +297,101 @@ function loadSavedData() {
     });
 }
 
-// Populate delete dropdown with students
-function populateDeleteDropdown() {
-    const dropdown = document.getElementById("deleteStudentDropdown");
-    dropdown.innerHTML = ""; // Clear existing options
-
+function deleteStudent(id) {
+    // Get stored students from local storage
     const storedStudents = JSON.parse(localStorage.getItem("studentData")) || [];
-    const defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.textContent = "Select a student to delete";
-    dropdown.appendChild(defaultOption);
-
-    storedStudents.forEach((student) => {
-        const option = document.createElement("option");
-        option.value = student.ssn;
-        option.textContent = student.name;
-        dropdown.appendChild(option);
-    });
-}
-
-// Handle delete student button click
-function handleDeleteStudent() {
-    const ssn = document.getElementById("deleteStudentDropdown").value;
-
-    if (!ssn) {
-        Swal.fire({
-            title: "No Selection",
-            text: "Please select a student to delete.",
-            icon: "warning",
-            confirmButtonText: "Okay",
-        });
-        return;
-    }
-
-    deleteStudentBySSN(ssn);
-}
-
-// Delete a student by SSN
-function deleteStudentBySSN(ssn) {
-    const storedStudents = JSON.parse(localStorage.getItem("studentData")) || [];
+    
+    // Filter out the student with the matching ID
     const updatedStudents = storedStudents.filter(
-        (student) => student.ssn && student.ssn.toString() !== ssn
+        (student) => student.id !== id
     );
+    
+    // Update local storage with the remaining students
     localStorage.setItem("studentData", JSON.stringify(updatedStudents));
 
-    // Remove the row from the table
+    // Remove the corresponding row from the table
     const tableBody = document.getElementById("studentTableBody");
     const rowToRemove = Array.from(tableBody.querySelectorAll("tr")).find(
-        (row) => row.getAttribute("data-id") === ssn
+        (row) => row.getAttribute("data-id") === id.toString()
     );
     if (rowToRemove) {
         tableBody.removeChild(rowToRemove);
     }
 
-    // Update the dropdown
-    populateDeleteDropdown();
-
+    // Display success message
     Swal.fire({
         title: "Student Deleted",
         text: "The selected student has been removed.",
         icon: "success",
         confirmButtonText: "Okay",
-    }).then(() => {
-        location.reload();
     });
 }
+
+// // Populate delete dropdown with students
+// function populateDeleteDropdown() {
+//     const dropdown = document.getElementById("deleteStudentDropdown");
+//     dropdown.innerHTML = ""; // Clear existing options
+
+//     const storedStudents = JSON.parse(localStorage.getItem("studentData")) || [];
+//     const defaultOption = document.createElement("option");
+//     defaultOption.value = "";
+//     defaultOption.textContent = "Select a student to delete";
+//     dropdown.appendChild(defaultOption);
+
+//     storedStudents.forEach((student) => {
+//         const option = document.createElement("option");
+//         option.value = student.ssn;
+//         option.textContent = student.name;
+//         dropdown.appendChild(option);
+//     });
+// }
+
+// Handle delete student button click
+// function handleDeleteStudent() {
+//     const ssn = document.getElementById("deleteStudentDropdown").value;
+
+//     if (!ssn) {
+//         Swal.fire({
+//             title: "No Selection",
+//             text: "Please select a student to delete.",
+//             icon: "warning",
+//             confirmButtonText: "Okay",
+//         });
+//         return;
+//     }
+
+//     deleteStudentBySSN(ssn);
+// }
+
+// Delete a student by SSN
+// function deleteStudentByID(ID) {
+//     const storedStudents = JSON.parse(localStorage.getItem("studentData")) || [];
+//     const updatedStudents = storedStudents.filter(
+//         (student) => student.ssn && student.ID.toString() !== ID
+//     );
+//     localStorage.setItem("studentData", JSON.stringify(updatedStudents));
+
+//     // Remove the row from the table
+//     const tableBody = document.getElementById("studentTableBody");
+//     const rowToRemove = Array.from(tableBody.querySelectorAll("tr")).find(
+//         (row) => row.getAttribute("data-id") === ID
+//     );
+//     if (rowToRemove) {
+//         tableBody.removeChild(rowToRemove);
+//     }
+
+//     // Update the dropdown
+//     // populateDeleteDropdown();
+
+//     Swal.fire({
+//         title: "Student Deleted",
+//         text: "The selected student has been removed.",
+//         icon: "success",
+//         confirmButtonText: "Okay",
+//     }).then(() => {
+//         location.reload();
+//     });
+// }
 
 // Handle reset table button click
 function handleResetTable() {
@@ -380,7 +412,7 @@ function handleResetTable() {
 function resetTable() {
     document.getElementById("studentTableBody").innerHTML = "";
     localStorage.removeItem("studentData");
-    populateDeleteDropdown();
+    // populateDeleteDropdown();
 
     Swal.fire({
         title: "Reset!",
