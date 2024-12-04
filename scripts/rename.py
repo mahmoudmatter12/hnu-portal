@@ -23,5 +23,13 @@ def getdata():
         json.dump(data, f, indent=4)
             
 
+def sort_by_names():
+    with open('/home/mahmoud/development/hnu-portal/Data/ocs2.json') as f:
+        data = json.load(f)
+        data = sorted(data, key=lambda x: x['name'])
+        
+    with open('/home/mahmoud/development/hnu-portal/Data/ocs2.json', 'w') as f:
+        json.dump(data, f, indent=4)
+
 if __name__ == "__main__":
-    getdata()
+    sort_by_names()
