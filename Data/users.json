@@ -32,7 +32,7 @@
     {
         "id": 4,
         "email": "Ashraf@protal.com",
-        "name": "Mohmaed Ashraf",
+        "name": "Ashraf",
         "pass": "1001",
         "role": "OC",
         "isadmin": false
