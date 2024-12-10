@@ -6,34 +6,11 @@
         "email": "Mahmoud@portal.com",
         "role": "admin",
         "isadmin": true
-    },
-    {
-        "id": 2,
-        "name": "mahmoud",
-        "pass": "1234",
-        "role": "prof",
-        "isadmin": false
     }, 
     {
         "id": 3,
         "name": "hima",
         "pass": "2003",
-        "role": "OC",
-        "isadmin": false
-    },
-    {
-        "id": 3,
-        "email": "rana@protal.com",
-        "name": "Rana khaled",
-        "pass": "1000",
-        "role": "OC",
-        "isadmin": false
-    },
-    {
-        "id": 4,
-        "email": "Ashraf@protal.com",
-        "name": "Ashraf",
-        "pass": "1001",
         "role": "OC",
         "isadmin": false
     },
