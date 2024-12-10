@@ -13,13 +13,5 @@
         "pass": "2003",
         "role": "OC",
         "isadmin": false
-    },
-    {
-        "id": 4,
-        "email": "Ashraf@protal.com",
-        "name": "Haidy",
-        "pass": "1002",
-        "role": "admin",
-        "isadmin": true
     }
 ]
