@@ -6,7 +6,7 @@
 **👉 Live Demo & Case Study:** [Explore on my Portfolio](https://matter-portofilio.vercel.app/#projects)  
 ```
 
-![Dashboard Preview](/static/images/screenshot-dashboard.png)  
+![Dashboard Preview](/static/images/landing.png)  
 *Role-based dashboard built with pure HTML/CSS/JS*
 
 
