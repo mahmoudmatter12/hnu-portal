@@ -1,26 +1,106 @@
-# HNU-portal
-## Features
-
-- **User Authentication**: Secure login and registration system.
-- **Dashboard**: Personalized user dashboard displaying relevant information.
-- **Course Management**: Add, update, and delete courses.
-- **Assignment Submission**: Upload and manage assignments.
-- **Grade Tracking**: View and track grades for courses.
-- **Notifications**: Receive important updates and notifications.
-- **Profile Management**: Update personal information and settings.
-
-## Functions
-
-- **Login**: Authenticate users with email and password.
-- **Register**: Create a new user account.
-- **View Dashboard**: Display user-specific information and updates.
-- **Manage Courses**: CRUD operations for courses.
-- **Submit Assignments**: Upload assignments for courses.
-- **View Grades**: Display grades for completed courses.
-- **Receive Notifications**: Show notifications for important events.
-- **Edit Profile**: Update user profile information.
+# 🏫 HNU-PORTAL  
 
 
-## License
+```markdown
+**A Vanilla JS University Management System**  
+**👉 Live Demo & Case Study:** [Explore on my Portfolio](https://matter-portofilio.vercel.app/#projects)  
+```
 
-This project is licensed under the HNU-SU License.
+![Dashboard Preview](/static/images/screenshot-dashboard.png)  
+*Role-based dashboard built with pure HTML/CSS/JS*
+
+
+### 🚪 User Authentication
+- Secure login system with `sessionStorage` persistence
+- Role-based access control (Admin, OC, Faculty)
+- SweetAlert2 for intuitive error handling
+
+### 📚 Academic Management
+- **Dynamic Time Table**:
+  - Auto-detects current day (Mon-Sun)
+  - Fetches schedules from JSON files
+  - Visual indicators for free slots
+- **Course Management**:
+  - View assigned courses
+  - Track academic schedule
+- **Assignment System**:
+  - Submit course assignments
+  - Track submission status
+
+### 📊 Student Portal
+- **Attendance Tracking**:
+  - QR code scanning (Instascan.js)
+  - Manual SSN entry
+  - Excel export functionality
+- **Grade Management**:
+  - View course grades
+  - Track academic progress
+- **Profile Management**:
+  - Update personal information
+  - Role-specific dashboard views
+
+### 🎪 Event Management (OC Role)
+- Volunteer coordination
+- Attendance tracking
+- Data export capabilities
+
+---
+
+## 🛠️ Technical Implementation
+
+### 🔧 Core Architecture
+```javascript
+// Example: Dynamic timetable loading
+fetch(`/Data/time_table/${getCurrentDay()}.json`)
+  .then(response => response.json())
+  .then(data => populateTimetable(data));
+```
+
+### 📦 Key Technologies
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
+- **Libraries**:
+  - SweetAlert2 for interactive alerts
+  - Instascan for QR code processing
+  - SheetJS for Excel exports
+  - Bootstrap 5 for responsive layouts
+---
+
+## 🎓 Key Learnings
+✅ **Vanilla JS Optimization**  
+- Efficient DOM manipulation techniques  
+- Event delegation patterns  
+- Modular code organization  
+
+✅ **Performance Enhancements**  
+- Debounced input handlers (300ms)  
+- Batch DOM updates with DocumentFragment  
+- Lazy loading of JSON data  
+
+✅ **User Experience**  
+- Role-based interface adaptation  
+- Progressive disclosure of features  
+- Consistent feedback mechanisms  
+
+---
+
+## 🚀 Getting Started
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   ```
+2. Open `index.html` in a browser (Live Server recommended)
+
+---
+
+## 🔮 Future Roadmap
+- Implement IndexedDB for offline support
+- Add Web Workers for data processing
+- Develop REST API integration
+- Enhance accessibility features
+
+---
+
+## 📜 License  
+This project is licensed under the **HNU-SU License**.
+
+**🔗 Explore the full case study:** [My Portfolio](https://matter-portofilio.vercel.app/#projects)

@@ -1,0 +1,62 @@
+[
+    {
+      "name": "",
+      "gmail": "",
+      "ssn": "",
+      "student_id": "",
+      "department": "",
+      "grade": "",
+      "payment_state": "",
+      "faculty": "",
+      "level": "",
+      "section": "",
+      "group_number": "",
+      "phone_num": "",
+      "facebook_url": "",
+      "facebook_name": "",
+      "GPA":[
+          {
+              "semester": "",
+              "GPA": ""
+          },
+          {
+              "semester": "",
+              "GPA": ""
+          },
+          {
+              "semester": "",
+              "GPA": ""
+          },
+          {
+              "semester": "",
+              "GPA": ""
+          },
+          {
+              "semester": "",
+              "GPA": ""
+          }
+      ],
+      "subjects": [
+        {
+          "subject_name": "",
+          "subject_code": ""
+        },
+        {
+          "subject_name": "",
+          "subject_code": ""
+        },
+        {
+          "subject_name": "",
+          "subject_code": ""
+        },
+        {
+          "subject_name": "",
+          "subject_code": ""
+        },
+        {
+          "subject_name": "",
+          "subject_code": ""
+        }
+      ]
+    }
+  ]
