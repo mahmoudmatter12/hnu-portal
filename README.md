@@ -3,7 +3,8 @@
 
 ```markdown
 **A Vanilla JS University Management System**  
-**👉 Live Demo & Case Study:** [Explore on my Portfolio](https://matter-portofilio.vercel.app/#projects)  
+**👉 Live Demo & Case Study:** [Explore on my Portfolio](https://matter-portofilio.vercel.app/#projects)
+
 ```
 
 ![Dashboard Preview](/static/images/landing.png)  
@@ -86,7 +87,7 @@ fetch(`/Data/time_table/${getCurrentDay()}.json`)
 ## 🚀 Getting Started
 1. Clone the repository:
    ```bash
-   git clone [repository-url]
+   git clone https://github.com/mahmoudmatter12/hnu-portal.git
    ```
 2. Open `index.html` in a browser (Live Server recommended)
 
